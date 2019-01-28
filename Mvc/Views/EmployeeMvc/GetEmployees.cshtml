@@ -1,0 +1,66 @@
+﻿@model IEnumerable<IdentityFrame.Models.ApplicationUser>
+
+@{
+    ViewBag.Title = "GetEmployees";
+}
+
+<h2>GetEmployees</h2>
+
+<p>
+    @Html.ActionLink("Register Employee", "Register")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Role)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Age)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Salary)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StudioName)
+        </th>
+      
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Role)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Age)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Salary)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StudioName)
+        </td>
+       
+        <td>
+            @Html.ActionLink("Edit", "EditEmployee", new { id=item.Id }) |
+            @Html.ActionLink("Details", "EmployeeDetails", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "DeleteEmployee", new { id=item.Id })
+           
+        </td>
+    </tr>
+}
+
+</table>
