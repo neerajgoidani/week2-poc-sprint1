@@ -24,18 +24,34 @@ namespace IdentityFrame.Security
             }
             else
             {
+                int flag = 0;
                 string authorizatonToken = filterContext.Request.Headers.Authorization.Parameter;
-             
+             //   string authorizatonToken = filterContext.Request.Headers.Authorization.Parameter;
+
+                string[] splitRolesarray = Role.Split(',');
+
 
                 string userRole = AuthenticationModule.ValidateToken(authorizatonToken); // we will get the user role
 
-                if (Role == userRole)
+                if (!string.IsNullOrEmpty(userRole))
                 {
-                    
+                    foreach (string role in splitRolesarray)
+                    {
+                        if (role == userRole)
+                        {
+                            flag = 1;
+                            break;
+                        }
+                    }
+                }
+
+                if (flag == 1)
+                {
+
                 }
                 else
                 {
-                    filterContext.Response= filterContext.Request.CreateResponse(HttpStatusCode.Unauthorized);
+                    filterContext.Response = filterContext.Request.CreateResponse(HttpStatusCode.Unauthorized);
                     //filterContext.Response = filterContext.Request.CreateResponse();
                     //filterContext.Response.Content = new StringContent(userRole);
                 }

@@ -133,15 +133,21 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\EmployeeMvcController.cs" />
+    <Compile Include="Controllers\TechDirectorMvcController.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Models\RegisterViewModel.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\RoleViewModel.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\Mvc.dll" />
+    <Content Include="bin\Mvc.pdb" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -150,8 +156,15 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="obj\Debug\Mvc.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\Mvc.dll" />
+    <Content Include="obj\Debug\Mvc.pdb" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <Content Include="obj\Debug\Mvc.csproj.CopyComplete" />
+    <Content Include="obj\Debug\Mvc.csproj.CoreCompileInputs.cache" />
+    <Content Include="obj\Debug\Mvc.csprojAssemblyReference.cache" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -183,9 +196,13 @@
     <Content Include="Views\EmployeeMvc\EditEmployee.cshtml" />
     <Content Include="Views\EmployeeMvc\Login.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\TechDirectorMvc\EditEmployee.cshtml" />
+    <Content Include="Views\TechDirectorMvc\GetEmployees.cshtml" />
+    <Content Include="Views\TechDirectorMvc\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

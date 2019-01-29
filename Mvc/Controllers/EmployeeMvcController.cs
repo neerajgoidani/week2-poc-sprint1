@@ -116,6 +116,11 @@ namespace Mvc.Controllers
                         {
                             return RedirectToAction("Index", "Admin");
                         }
+                        else if ((user.Role).Equals("TD"))
+                        {
+                            return RedirectToAction("GetEmployees", "TechDirectorMvc");
+                        }
+
 
                     }
                     else

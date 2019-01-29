@@ -479,7 +479,7 @@ namespace IdentityFrame.Controllers
         // }
       
             [AllowAnonymous]
-        [JwtAuthentication(Role = "HR")]
+        [JwtAuthentication(Role = "HR,TD")]
         [Route("GetEmployee/{id}")]
         public IHttpActionResult GetEmployee(string id)
         {
@@ -611,7 +611,6 @@ namespace IdentityFrame.Controllers
 
         [HttpPost]
         [AllowAnonymous]
-    
         [Route("Login")]
         public async Task<IHttpActionResult> Login(LoginBindingModel model)
         {
