@@ -1,0 +1,62 @@
+﻿@model IdentityFrame.Models.ApplicationUser
+
+@{
+    ViewBag.Title = "Employee Information";
+}
+<div>
+    <h1>Employee Information</h1>
+    <hr />
+    <dl class="dl-horizontal">
+       <dt>
+            @Html.DisplayNameFor(model => model.UserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Role)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Role)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Age)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Age)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Salary)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Salary)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StudioName)
+        </dt>
+
+        <dd>
+            @Html.ActionLink(
+        linkText:Model.StudioName,
+        actionName: "GetStudio",
+        controllerName: "EmpMvc",
+        routeValues: new {
+        id = Model.StudioName
+        },
+        htmlAttributes: null
+        )
+        </dd>
+
+      
+
+    </dl>
+</div>
+

@@ -33,5 +33,25 @@ namespace IdentityFrame.Controllers
 
 
         }
+
+        [HttpGet]
+        [Route("api/StudioApi/GetStudioByName/{id}")]
+
+        public IHttpActionResult GetStudioByName(string id)
+        {
+            StudioModel studios = repository.GetStudio(id);
+            if (studios != null)
+            {
+                //   log.Info("Studio Retrieved Successfully");
+                return Ok(studios);
+            }
+            else
+            {
+                // log.Error("Studio could not be found");
+                return NotFound();
+            }
+
+
+        }
     }
 }

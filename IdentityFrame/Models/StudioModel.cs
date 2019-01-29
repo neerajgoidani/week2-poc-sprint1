@@ -10,9 +10,9 @@ namespace IdentityFrame.Models
     public class StudioModel
     {
         
-            [Key]
+           
             [Required]
-            [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+            [Key]
             public int StudioId { set; get; }
             public string StudioName { set; get; }
             public string StudioDescription { set; get; }

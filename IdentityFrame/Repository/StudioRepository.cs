@@ -16,6 +16,10 @@ namespace IdentityFrame.Repository
             return dbContext.Studios.ToList();
         }
 
+        public StudioModel GetStudio(string studioname)
+        {
+            return dbContext.Studios.Where(x => x.StudioName == studioname).FirstOrDefault();
+        }
 
     }
 }

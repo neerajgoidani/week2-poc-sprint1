@@ -90,6 +90,7 @@ namespace Mvc.Controllers
 
             try
             {
+               
                 
                     HttpResponseMessage response = client.PostAsJsonAsync("http://localhost:50581/api/Employee/Login" , employee).Result;
 
@@ -116,6 +117,11 @@ namespace Mvc.Controllers
                         {
                             return RedirectToAction("Index", "Admin");
                         }
+                        else if((user.Role).Equals("Employee"))
+                        {
+                            Session["Name"] = employee.Name;
+                            return RedirectToAction("GetEmployee","EmpMvc");
+                        }
 
                     }
                     else
@@ -141,15 +147,6 @@ namespace Mvc.Controllers
             }
 
         }
-
-
-
-
-
-
-
-
-
 
         [AllowAnonymous]
         [HttpGet]

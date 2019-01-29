@@ -1,0 +1,43 @@
+﻿@model Mvc.Models.StudioViewModel
+
+@{
+    ViewBag.Title = "Studio Information";
+}
+
+
+
+<div>
+    <h1>Studio Information</h1>
+    <hr />
+    <dl class="dl-horizontal">
+       
+        <dt>
+            @Html.DisplayNameFor(model => model.StudioName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StudioName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StudioDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StudioDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TechDirector)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TechDirector)
+        </dd>
+
+    </dl>
+</div>
+<p>
+  
+    @Html.ActionLink("Back To Employee Info", "GetEmployee")
+</p>

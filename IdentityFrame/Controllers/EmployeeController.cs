@@ -459,24 +459,7 @@ namespace IdentityFrame.Controllers
 
         }
 
-        // [AllowAnonymous]
-        //// [Route("GetRoles")]
-        // public IHttpActionResult GetRoles()
-        // {
-
-        //     var roles =  RoleManager.Roles.Select(x => x.Name).ToList();
-
-        //     if (roles != null)
-        //     {
-        //       return  Ok(roles);
-        //     }
-        //     else
-        //     {
-        //       return  NotFound();
-        //     }
-
-
-        // }
+       
       
             [AllowAnonymous]
         [JwtAuthentication(Role = "HR")]
@@ -500,8 +483,8 @@ namespace IdentityFrame.Controllers
 
 
         [AllowAnonymous]
-      //  [JwtAuthentication(Role = "HR")]
         [Route("GetEmployeeByName/{name}")]
+      //  [JwtAuthentication(Role ="Employee")]
         public IHttpActionResult GetEmployeeByName(string name)
         {
 
