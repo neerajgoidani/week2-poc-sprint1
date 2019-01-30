@@ -380,6 +380,7 @@ namespace IdentityFrame.Controllers
 
 
         [AllowAnonymous]
+       [JwtAuthentication(Role ="HR")]
         //     [Route("Register")]
         public async Task<IHttpActionResult> Register(RegisterBindingModel model)
         {
@@ -459,24 +460,7 @@ namespace IdentityFrame.Controllers
 
         }
 
-        // [AllowAnonymous]
-        //// [Route("GetRoles")]
-        // public IHttpActionResult GetRoles()
-        // {
-
-        //     var roles =  RoleManager.Roles.Select(x => x.Name).ToList();
-
-        //     if (roles != null)
-        //     {
-        //       return  Ok(roles);
-        //     }
-        //     else
-        //     {
-        //       return  NotFound();
-        //     }
-
-
-        // }
+       
       
             [AllowAnonymous]
         [JwtAuthentication(Role = "HR")]
@@ -500,8 +484,8 @@ namespace IdentityFrame.Controllers
 
 
         [AllowAnonymous]
-      //  [JwtAuthentication(Role = "HR")]
         [Route("GetEmployeeByName/{name}")]
+      //  [JwtAuthentication(Role ="Employee")]
         public IHttpActionResult GetEmployeeByName(string name)
         {
 
@@ -631,7 +615,7 @@ namespace IdentityFrame.Controllers
                 case SignInStatus.Success:
                     string token = AuthenticationModule.GenerateToken(model.Name, user.Role);
                     return Ok(token);
-                    //return Ok(user);
+                //return Ok(user);
                 //case SignInStatus.LockedOut:
                 //    return NotFound() ;
                 //case SignInStatus.RequiresVerification:

@@ -133,12 +133,14 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\EmployeeMvcController.cs" />
+    <Compile Include="Controllers\EmpMvcController.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
     <Compile Include="Models\RegisterViewModel.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\RoleViewModel.cs" />
+    <Compile Include="Models\StudioViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -183,6 +185,8 @@
     <Content Include="Views\EmployeeMvc\EditEmployee.cshtml" />
     <Content Include="Views\EmployeeMvc\Login.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\EmpMvc\GetEmployee.cshtml" />
+    <Content Include="Views\EmpMvc\GetStudio.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,35 +1,13 @@
 ﻿@model IdentityFrame.Models.ApplicationUser
 
-
-
-<h2>Employee Details</h2>
-
+@{
+    ViewBag.Title = "Employee Information";
+}
 <div>
-   
+    <h1>Employee Information</h1>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-
-        
-
-       
-
-       
-
-
-       
-
-        
-
-
-
-        <dt>
+       <dt>
             @Html.DisplayNameFor(model => model.UserName)
         </dt>
 
@@ -66,14 +44,19 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.StudioName)
+            @Html.ActionLink(
+        linkText:Model.StudioName,
+        actionName: "GetStudio",
+        controllerName: "EmpMvc",
+        routeValues: new {
+        id = Model.StudioName
+        },
+        htmlAttributes: null
+        )
         </dd>
 
-       
+      
 
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "EditEmployee", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "GetEmployees")
-</p>
+
