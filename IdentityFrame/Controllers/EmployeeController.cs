@@ -614,7 +614,7 @@ namespace IdentityFrame.Controllers
                 case SignInStatus.Success:
                     string token = AuthenticationModule.GenerateToken(model.Name, user.Role);
                     return Ok(token);
-                    //return Ok(user);
+                //return Ok(user);
                 //case SignInStatus.LockedOut:
                 //    return NotFound() ;
                 //case SignInStatus.RequiresVerification:
