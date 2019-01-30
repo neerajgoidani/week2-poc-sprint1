@@ -13,7 +13,8 @@ namespace IdentityFrame.Models
            
             [Required]
             [Key]
-            public int StudioId { set; get; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)] 
+        public int StudioId { set; get; }
             public string StudioName { set; get; }
             public string StudioDescription { set; get; }
             public string TechDirector { set; get; }

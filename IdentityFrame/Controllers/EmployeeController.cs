@@ -380,6 +380,7 @@ namespace IdentityFrame.Controllers
 
 
         [AllowAnonymous]
+       [JwtAuthentication(Role ="HR")]
         //     [Route("Register")]
         public async Task<IHttpActionResult> Register(RegisterBindingModel model)
         {
