@@ -1,14 +1,10 @@
 ﻿@model IEnumerable<IdentityFrame.Models.ApplicationUser>
 
-@{
-    ViewBag.Title = "GetEmployees";
-}
 
-<h2>GetEmployees</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+<h2>Employee List</h2>
+
+
 <table class="table">
     <tr>
         <th>
@@ -39,9 +35,10 @@
         <td>
             @Html.DisplayFor(modelItem => item.StudioName)
         </td>
-        <
+        
         <td>
-            @Html.ActionLink("Edit", "EditEmployee", new { id = item.Id }) |
+            
+            @Html.ActionLink("Edit", "EditEmployee", new { id = item.Id }) 
           
         </td>
     </tr>

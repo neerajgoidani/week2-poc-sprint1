@@ -80,7 +80,13 @@ namespace IdentityFrame.Controllers
         public IHttpActionResult GetEmployees()
         {
 
-            var Employees = UserManager.Users.ToList();
+          //  var  = UserManager.Users.ToList();
+
+            // UserManager.Users.Where( u => !u.Role.Equals("TD") && u.StudioName.Equals("") );// where role is not TD
+            var Employees = UserManager.Users.Where(u => !u.Role.Equals("TD")).ToList();
+
+
+
             if (Employees != null)
             {
                 return Ok(Employees);

@@ -15,6 +15,8 @@ namespace Mvc.Controllers
         {
           
         };
+        string tokenValue,userName;
+         
 
 
 
@@ -29,7 +31,9 @@ namespace Mvc.Controllers
         [AllowAnonymous]
         public ActionResult GetEmployees(RegisterViewModel model)
         {
-            string tokenValue = (string)Session["Token"];
+            tokenValue = (string)Session["Token"];
+           
+
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", tokenValue);
 
             HttpResponseMessage responseMessage = client.GetAsync("http://localhost:50581/api/TechDirector/GetEmployees").Result;
@@ -43,7 +47,7 @@ namespace Mvc.Controllers
             }
             else
             {
-                return RedirectToAction("Index");
+                return RedirectToAction("Login","EmployeeMvc");
             }
 
         }
@@ -64,28 +68,38 @@ namespace Mvc.Controllers
                     return RedirectToAction("GetEmployees");
                 else
                 {
-                    return RedirectToAction("Login");
+                    return RedirectToAction("Login", "EmployeeMvc");
                 }
             }
             catch (Exception exe)
             {
-                return RedirectToAction("Login");
+                return RedirectToAction("Login", "EmployeeMvc");
                 //   return View();
             }
 
         }
 
         [AllowAnonymous]
-        [HttpGet]
+        [HttpGet] // request on clicking a link is HttpGet
         public ActionResult EditEmployee(string id)
         {
             ApplicationUser employee = null;
+            ApplicationUser techDirector = null;
             try
             {
+                userName = (string)Session["UserName"];
 
                 // HttpResponseMessage response = client.GetAsync($"api/employee/employee/{id}").Result;
                 HttpResponseMessage response = client.GetAsync($"http://localhost:50581/api/Employee/GetEmployee/{id}").Result;
                 response.EnsureSuccessStatusCode();
+                employee = response.Content.ReadAsAsync<ApplicationUser>().Result;
+
+
+                HttpResponseMessage response1 = client.GetAsync($"http://localhost:50581/api/Employee/GetEmployeeByName/{userName}").Result;
+                response1.EnsureSuccessStatusCode();
+                techDirector = response1.Content.ReadAsAsync<ApplicationUser>().Result;
+
+
 
                 HttpResponseMessage responseMessage = client.GetAsync("http://localhost:50581/api/StudioApi/GetStudioList").Result;
                 
@@ -93,8 +107,26 @@ namespace Mvc.Controllers
                 if (responseMessage.IsSuccessStatusCode == true)
                 {
 
-                    IEnumerable<StudioModel> StudioList = responseMessage.Content.ReadAsAsync<IEnumerable<StudioModel>>().Result;
-                    ViewData["MyStudioList"] = new SelectList(StudioList, "StudioName", "StudioName");
+                    List<StudioModel> fullStudioList = responseMessage.Content.ReadAsAsync<List<StudioModel>>().Result;
+
+                    List<StudioModel> optionsStudioList = new List<StudioModel>();
+
+                    foreach (StudioModel studio in fullStudioList)
+                    {
+                        if (studio.StudioName == employee.StudioName || studio.StudioName == techDirector.StudioName)
+                        {
+                            optionsStudioList.Add(studio);
+                        }
+                        else
+                        {
+
+                        }
+
+                    }
+
+
+
+                    ViewData["MyStudioList"] = new SelectList(optionsStudioList, "StudioName", "StudioName");
 
                 }
 
@@ -102,17 +134,17 @@ namespace Mvc.Controllers
                 if (response.IsSuccessStatusCode)
                 {
 
-                    employee = response.Content.ReadAsAsync<ApplicationUser>().Result;
+                  //  employee = response.Content.ReadAsAsync<ApplicationUser>().Result;
                     return View(employee);
                 }
                 else
                 {
-                    return RedirectToAction("Login");
+                    return RedirectToAction("Login", "EmployeeMvc");
                 }
             }
             catch (Exception exe)
             {
-                return RedirectToAction("Login");
+                return RedirectToAction("Login", "EmployeeMvc");
                 // return View();
             }
 

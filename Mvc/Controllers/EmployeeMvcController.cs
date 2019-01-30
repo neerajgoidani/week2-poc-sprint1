@@ -100,6 +100,7 @@ namespace Mvc.Controllers
                     string tokenValue = response.Content.ReadAsAsync<String>().Result;
                     client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", tokenValue);
                     Session["Token"] = tokenValue;
+                    Session["UserName"] = employee.Name;
 
                     HttpResponseMessage response1 = client.GetAsync($"http://localhost:50581/api/Employee/GetEmployeeByName/{employee.Name}").Result;
 

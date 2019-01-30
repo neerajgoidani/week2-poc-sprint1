@@ -16,7 +16,7 @@ namespace Mvc
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "EmployeeMvc", action = "Register", id = UrlParameter.Optional }
+                defaults: new { controller = "EmployeeMvc", action = "Login", id = UrlParameter.Optional }
             );
         }
     }
